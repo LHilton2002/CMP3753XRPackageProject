@@ -9,6 +9,7 @@ public class TimerScript : MonoBehaviour
     [SerializeField] public Slider slider;
     [SerializeField] public TextMeshProUGUI durationText;
     [SerializeField] public TextMeshProUGUI timerText;
+    [SerializeField] public bool timerSet = false;
 
     public float selectedTime = 0f;
     public float remainingTime = 0f;
@@ -29,9 +30,11 @@ public class TimerScript : MonoBehaviour
             remainingTime -= Time.deltaTime;
             timerText.text = "Time Left: " + Mathf.FloorToInt(remainingTime / 60f).ToString() + "m " + Mathf.FloorToInt(remainingTime % 60f).ToString() + "s";
         }
-        else
+        else if (timerSet)
         {
             timerText.text = "Time's Up!";
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audioSource.clip);
         }
     }
 
@@ -40,5 +43,6 @@ public class TimerScript : MonoBehaviour
         selectedTime = slider.value;
         remainingTime = selectedTime * 60f;
         Debug.Log(selectedTime.ToString("0:00"));
+        timerSet = true;
     }
 }
