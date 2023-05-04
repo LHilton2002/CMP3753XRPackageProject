@@ -7,6 +7,6 @@ public class BeachSceneLoader : MonoBehaviour
 {
     public void LoadBeachScene()
     {
-        SceneManager.LoadScene("IslandScene");
+        SceneManager.LoadScene("BeachScene");
     }
 }

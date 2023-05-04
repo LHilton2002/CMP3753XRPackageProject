@@ -7,7 +7,7 @@ public class ForestSceneLoader : MonoBehaviour
 {
     public void LoadForestScene()
     {
-        SceneManager.LoadScene("ForestScene");
+        SceneManager.LoadScene("ForestScene", LoadSceneMode.Single);
     }
 }
 

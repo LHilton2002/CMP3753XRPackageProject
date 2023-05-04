@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Beach
+  m_text: 'Island
 
 '
   m_isRightToLeft: 0

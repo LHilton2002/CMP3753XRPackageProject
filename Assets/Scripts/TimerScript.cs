@@ -35,7 +35,15 @@ public class TimerScript : MonoBehaviour
             timerText.text = "Time's Up!";
             AudioSource audioSource = GetComponent<AudioSource>();
             audioSource.PlayOneShot(audioSource.clip);
+            StartCoroutine(StopAudio(audioSource.clip.length));
         }
+    }
+
+    public IEnumerator StopAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
     }
 
     public void DisplaySelectedTime()
